@@ -1,3 +1,6 @@
+pandas
+numpy
 soundata
 librosa
 matplotlib
+tqdm
