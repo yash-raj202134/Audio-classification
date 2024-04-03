@@ -8,6 +8,11 @@ data_ingestion:
   unzip_dir: artifacts/data_ingestion
 
 
+data_validation:
+  root_dir: artifacts/data_validation
+  STATUS_FILE: artifacts/data_validation/status.txt
+  ALL_REQUIRED_FOLDERS: ["artifacts/data_ingestion/UrbanSound8K/audio","artifacts/data_ingestion/UrbanSound8K/metadata"]
+
 # prepare_base_model:
 #   root_dir: artifacts/prepare_base_model
 #   base_model_path: artifacts/prepare_base_model/base_model.h5

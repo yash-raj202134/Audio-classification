@@ -5,6 +5,7 @@ from src.audioclf.logger import logging
 from src.audioclf.exception import CustomException
 
 from src.audioclf.pipeline.stage_01_data_ingestion import DataIngestionTrainingPipeline
+from src.audioclf.pipeline.stage_02_data_validation import DataValidationTrainingPipeline
 
 # logging.info("testing log")
 
@@ -13,11 +14,25 @@ from src.audioclf.pipeline.stage_01_data_ingestion import DataIngestionTrainingP
 # except Exception as e:
 #     raise CustomException(e,sys)
 
-STAGE_NAME = "Data ingestion stage"
+# STAGE_NAME = "Data ingestion stage"
+# try:
+#     logging.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
+#     obj = DataIngestionTrainingPipeline()
+#     obj.main()
+#     logging.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
+# except Exception as e:
+#     raise CustomException(e,sys)
+
+
+STAGE_NAME = "Data Validation stage"
+
 try:
-    logging.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
-    obj = DataIngestionTrainingPipeline()
-    obj.main()
-    logging.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
+    logging.info(f">>>>>> stage {STAGE_NAME} started<<<<<<")
+    data_validation = DataValidationTrainingPipeline()
+    data_validation.main()
+    logging.info(f">>>>>> stage {STAGE_NAME} completed<<<<<<\n\nx==============x")
+
 except Exception as e:
-    raise CustomException(e,sys)
+    logging.exception(e)
+    raise e 
+
