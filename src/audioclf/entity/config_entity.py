@@ -20,3 +20,10 @@ class DataValidationConfig:
     ALL_REQUIRED_FOLDERS: List[Path] =  field(default_factory=list)
 
 
+
+@dataclass
+class DataTransformationConfig:
+    root_dir:Path
+    audio_data_path: str
+    meta_data_path: str
+

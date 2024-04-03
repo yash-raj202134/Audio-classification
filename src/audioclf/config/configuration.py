@@ -3,7 +3,7 @@ from src.audioclf.constants import *
 from src.audioclf.utils import read_yaml, create_directories
 
 # from cnnClassifier.entity.config_entity import DataIngestionConfig , PrepareBaseModelConfig ,TrainingConfig , EvaluationConfig
-from src.audioclf.entity.config_entity import DataIngestionConfig ,DataValidationConfig
+from src.audioclf.entity.config_entity import DataIngestionConfig ,DataValidationConfig , DataTransformationConfig
 import os
 from pathlib import Path
 
@@ -47,6 +47,20 @@ class ConfigurationManager:
         )
 
         return data_validation_config
+    
+    def get_data_transformation_config(self)->DataTransformationConfig:
+        config = self.config.data_transformation
+
+        create_directories([config.root_dir])
+
+        data_transformation_config = DataTransformationConfig(
+            root_dir=config.root_dir,
+            audio_data_path=config.audio_data_path,
+            meta_data_path=config.meta_data_path,
+
+        )
+
+        return data_transformation_config
     
 
     # def get_prepare_base_model_config(self) -> PrepareBaseModelConfig:

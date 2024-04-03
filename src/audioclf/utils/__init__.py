@@ -93,17 +93,25 @@ def create_directories(path_to_directories: list, verbose=True):
 
 
 @ensure_annotations
-def save_json(path: Path, data: dict):
-    """save json data
-
-    Args:
-        path (Path): path to json file
-        data (dict): data to be saved in json file
+def save_json(filename,data,path):
     """
-    with open(path, "w") as f:
-        json.dump(data, f, indent=4)
+    Save a pandas DataFrame to a JSON file.
+    Parameters:
+        filename (str): The filename (including extension) for the JSON file.
+        dataframe (pandas.DataFrame): The DataFrame to save.
+        path (str): The path where the file will be saved.
+    """
+    # Ensure the directory exists
+    os.makedirs(path, exist_ok=True)
+    
+    # Construct the full file path
+    file_path = os.path.join(path, filename)
 
-    logging.info(f"json file saved at: {path}")
+    try:
+        data.to_json(file_path)
+        logging.info(f"DataFrame saved to '{file_path}' as JSON.")
+    except Exception as e:
+        logging.error(f"Error occurred while saving DataFrame to '{file_path}': {e}")
 
 
 
