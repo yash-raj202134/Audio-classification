@@ -1,10 +1,11 @@
 pandas
 numpy
-soundata
 librosa
 resampy
 scikit-learn
 matplotlib
 tqdm
 tensorflow
-
+python-box
+pyyaml
+ensure
