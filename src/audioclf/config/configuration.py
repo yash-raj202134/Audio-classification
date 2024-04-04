@@ -96,6 +96,5 @@ class ConfigurationManager:
         )
 
         return model_evaluation_config
-    
 
 

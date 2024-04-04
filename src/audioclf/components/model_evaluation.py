@@ -9,6 +9,19 @@ class ModelEvaluation:
     def __init__(self, config: ModelEvaluationConfig):
         self.config = config
 
+    
+    def prepare_test_dataset(self,test_size):
+        test_data = test_size//2
+
+
+        return test_data
+
+
+    def evaluate(self):
+        '''input -> test_data : output ->evaluation_metrics.csv'''
+        pass
+
+
 
     # def generate_batch_sized_chunks(self,list_of_elements, batch_size):
     #     """split the dataset into smaller batches that we can process simultaneously
