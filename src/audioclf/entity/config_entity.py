@@ -27,3 +27,11 @@ class DataTransformationConfig:
     audio_data_path: str
     meta_data_path: str
 
+
+@dataclass
+class ModelTrainerConfig:
+    root_dir:Path
+    preprocessed_data_path: str
+    trained_model_path: str
+    num_train_epochs: int
+    per_device_train_batch_size: int

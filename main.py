@@ -7,7 +7,7 @@ from src.audioclf.exception import CustomException
 from src.audioclf.pipeline.stage_01_data_ingestion import DataIngestionTrainingPipeline
 from src.audioclf.pipeline.stage_02_data_validation import DataValidationTrainingPipeline
 from src.audioclf.pipeline.stage_03_datatransformation import DataTransformationTrainingPipeline
-
+from src.audioclf.pipeline.stage_04_model_trainer import ModelTrainerTrainingPipeline
 # logging.info("testing log")
 
 # try:
@@ -38,12 +38,24 @@ from src.audioclf.pipeline.stage_03_datatransformation import DataTransformation
 #     raise e 
 
 
-STAGE_NAME = "Data Transformation stage"
+# STAGE_NAME = "Data Transformation stage"
+
+# try:
+#     logging.info(f">>>>>> stage {STAGE_NAME} started<<<<<<")
+#     data_transformation = DataTransformationTrainingPipeline()
+#     data_transformation.main()
+#     logging.info(f">>>>>> stage {STAGE_NAME} completed<<<<<<\n\nx==============x")
+
+# except Exception as e:
+#     raise CustomException(e,sys)
+
+
+STAGE_NAME = "Model trainer stage"
 
 try:
     logging.info(f">>>>>> stage {STAGE_NAME} started<<<<<<")
-    data_transformation = DataTransformationTrainingPipeline()
-    data_transformation.main()
+    model_trainer = ModelTrainerTrainingPipeline()
+    model_trainer.main()
     logging.info(f">>>>>> stage {STAGE_NAME} completed<<<<<<\n\nx==============x")
 
 except Exception as e:

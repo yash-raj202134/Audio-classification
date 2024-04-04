@@ -5,6 +5,7 @@ import sys
 import yaml
 import json
 from box import ConfigBox
+import pandas as pd
 from pathlib import Path
 from ensure import ensure_annotations
 from box.exceptions import BoxValueError
@@ -37,6 +38,8 @@ def save_model(model, filename):
     """
     model.save(filename)
     print(f"Model saved to '{filename}'")
+
+    
 
 def load_saved_model(filename):
     """
@@ -115,18 +118,15 @@ def save_json(filename,data,path):
 
 
 
-@ensure_annotations
-def load_json(path: Path) -> ConfigBox:
-    """load json files data
+# @ensure_annotations
+# def load_json(path: Path) -> pd.DataFrame:
+#     """load json files data
+#     Args:
+#         path (Path): path to json file
 
-    Args:
-        path (Path): path to json file
+#     Returns: Dataframe
+#     """
+#     dataframe = pd.read_json(path)
 
-    Returns:
-        ConfigBox: data as class attributes instead of dict
-    """
-    with open(path) as f:
-        content = json.load(f)
-
-    logging.info(f"json file loaded succesfully from: {path}")
-    return ConfigBox(content)
+#     logging.info(f"json file loaded succesfully from: {path}")
+#     return dataframe

@@ -3,7 +3,9 @@ from src.audioclf.constants import *
 from src.audioclf.utils import read_yaml, create_directories
 
 # from cnnClassifier.entity.config_entity import DataIngestionConfig , PrepareBaseModelConfig ,TrainingConfig , EvaluationConfig
-from src.audioclf.entity.config_entity import DataIngestionConfig ,DataValidationConfig , DataTransformationConfig
+from src.audioclf.entity.config_entity import (DataIngestionConfig ,DataValidationConfig ,
+DataTransformationConfig ,ModelTrainerConfig)
+
 import os
 from pathlib import Path
 
@@ -61,6 +63,25 @@ class ConfigurationManager:
         )
 
         return data_transformation_config
+    
+
+    def get_model_trainer_config(self)->ModelTrainerConfig:
+        config = self.config.model_trainer
+        params = self.params.TrainingArguments
+
+        create_directories([config.root_dir])
+
+
+        model_trainer_config = ModelTrainerConfig(
+            root_dir = config.root_dir,
+            preprocessed_data_path = config.preprocessed_data_path,
+            trained_model_path=config.trained_model_path,
+            num_train_epochs= params.num_train_epochs,
+            per_device_train_batch_size = params.per_device_train_batch_size,
+            
+        )
+        return model_trainer_config
+    
     
 
     # def get_prepare_base_model_config(self) -> PrepareBaseModelConfig:
