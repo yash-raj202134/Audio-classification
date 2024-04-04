@@ -27,7 +27,8 @@ model_trainer:
   trained_model_path: artifacts/model_trainer
 
 
-
-# training:
-#   root_dir: artifacts/training
-#   trained_model_path: artifacts/training/model.h5
+model_evaluation:
+  root_dir: artifacts/model_evaluation
+  data_path: artifacts/data_transformation/preprocessed_data.json
+  model_path: artifacts/model_trainer/model.hdf5
+  metric_file_name: artifacts/model_evaluation/metrics.csv
