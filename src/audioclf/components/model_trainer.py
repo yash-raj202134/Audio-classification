@@ -134,3 +134,4 @@ class ModelTrainer:
 
         # saving the best model:
         save_model(model=model,filename=os.path.join(self.config.trained_model_path,'best_model.hdf5'))
+        logging.info(f"Model training details : epoch_size :{self.config.num_train_epochs},batch_size={self.config.per_device_train_batch_size} accuracy: {test_accuracy}")
