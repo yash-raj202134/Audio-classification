@@ -84,6 +84,7 @@ class ConfigurationManager:
 
     def get_model_evaluation_config(self) -> ModelEvaluationConfig:
         config = self.config.model_evaluation
+        params = self.params.TestingArguments
 
         create_directories([config.root_dir])
 
@@ -91,7 +92,8 @@ class ConfigurationManager:
             root_dir=config.root_dir,
             data_path=config.data_path,
             model_path = config.model_path,
-            metric_file_name = config.metric_file_name
+            metric_file_name = config.metric_file_name,
+            test_data_size = params.test_data_size
            
         )
 
