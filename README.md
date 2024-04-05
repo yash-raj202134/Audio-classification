@@ -3,8 +3,11 @@ Audio Classification Project Using Deep Learning..
 
 
 <!-- workflows -->
-## workflows
 
+# process
+Data ingestion--> Data transformation--> Data Validation--> Model training-->Model Evaluation
+
+## workflows
 1. Update config.yaml
 2. Update params.yaml
 3. Update the entity
@@ -13,3 +16,4 @@ Audio Classification Project Using Deep Learning..
 6. Update the pipeline
 7. Update the main.py
 8. app.py
+
