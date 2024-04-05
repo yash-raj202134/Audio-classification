@@ -92,7 +92,6 @@ class ConfigurationManager:
             root_dir=config.root_dir,
             data_path=config.data_path,
             model_path = config.model_path,
-            metric_file_name = config.metric_file_name,
             test_data_size = params.test_data_size
            
         )

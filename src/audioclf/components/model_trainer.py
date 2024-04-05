@@ -85,13 +85,14 @@ class ModelTrainer:
             
             start = datetime.now()
 
-            history = model.fit(X_train, y_train, 
+            history = model.fit(X_train, y_train,
                     batch_size=self.config.per_device_train_batch_size,
                     epochs=self.config.num_train_epochs,
                     validation_data=(X_test, y_test), 
                     callbacks=[checkpointer], 
                     verbose=1
                     )
+            
             
             # Plot training and validation loss
             plt.plot(history.history['loss'], label='Training Loss')
