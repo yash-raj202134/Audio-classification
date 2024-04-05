@@ -15,5 +15,5 @@ Data ingestion--> Data transformation--> Data Validation--> Model training-->Mod
 5. Update the components
 6. Update the pipeline
 7. Update the main.py
-8. app.py
+
 
